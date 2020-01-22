@@ -4,6 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "nodemon server.js --exec babel-node --presets env",
+    "release": "yarn clean && yarn build && yarn serve",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "babel . -s -D -d dist --preset env --ignore node_modules",
+    "serve": "node dist/server.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "mongoose": "^5.8.7"
